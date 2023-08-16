@@ -7,14 +7,8 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 function GuessList({ guesses }) {
   return (
     <div className="guess-results">
-      {/* Display guesses */}
-      {guesses.map((guess, idx) => (
-        <Guess key={idx} guess={guess} />
-      ))}
-
-      {/* Display empty rows */}
-      {range(guesses.length, NUM_OF_GUESSES_ALLOWED).map((idx) => (
-        <Guess key={`empty-${idx}`} guess={null} />
+      {range(NUM_OF_GUESSES_ALLOWED).map((idx) => (
+        <Guess key={idx} guess={guesses[idx]} /> // guesses[idx] is undefined for empty row
       ))}
     </div>
   );
