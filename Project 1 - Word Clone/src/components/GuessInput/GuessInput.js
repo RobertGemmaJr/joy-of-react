@@ -13,8 +13,6 @@ function GuessInput({ submitGuess }) {
   // Handle onSubmit event for form
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (guess.length !== GUESS_LENGTH) return; // Do nothing if invalid guess
-
     submitGuess(guess);
     setGuess("");
   };
