@@ -22,7 +22,15 @@ function GuessInput({ submitGuess }) {
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input id="guess-input" type="text" value={guess} onChange={handleChange} />
+      <input
+        id="guess-input"
+        type="text"
+        required={true}
+        minLength={GUESS_LENGTH}
+        maxLength={GUESS_LENGTH}
+        value={guess}
+        onChange={handleChange}
+      />
     </form>
   );
 }
