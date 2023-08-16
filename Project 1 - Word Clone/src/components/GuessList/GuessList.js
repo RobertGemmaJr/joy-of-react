@@ -11,7 +11,8 @@ function GuessList({ guesses }) {
       {guesses.map((guess, idx) => (
         <Guess key={idx} guess={guess} />
       ))}
-      {/* Display empty guesses */}
+
+      {/* Display empty rows */}
       {range(guesses.length, NUM_OF_GUESSES_ALLOWED).map((idx) => (
         <Guess key={`empty-${idx}`} guess={null} />
       ))}
