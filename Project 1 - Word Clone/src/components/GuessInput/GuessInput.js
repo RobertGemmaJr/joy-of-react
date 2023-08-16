@@ -13,8 +13,6 @@ function GuessInput({ submitGuess }) {
   // Handle onSubmit event for form
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (guess.length !== GUESS_LENGTH) return; // Do nothing if invalid guess
-
     submitGuess(guess);
     setGuess("");
   };
@@ -28,6 +26,8 @@ function GuessInput({ submitGuess }) {
         required={true}
         minLength={GUESS_LENGTH}
         maxLength={GUESS_LENGTH}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
         value={guess}
         onChange={handleChange}
       />
