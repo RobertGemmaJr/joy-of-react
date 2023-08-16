@@ -13,7 +13,7 @@ function GuessList({ guesses }) {
       ))}
       {/* Display empty guesses */}
       {range(guesses.length, NUM_OF_GUESSES_ALLOWED).map((idx) => (
-        <Guess key={`empty-${idx}`} />
+        <Guess key={`empty-${idx}`} guess={null} />
       ))}
     </div>
   );
