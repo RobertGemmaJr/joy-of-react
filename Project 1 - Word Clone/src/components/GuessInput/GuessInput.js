@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { GUESS_LENGTH } from "../../constants";
 
 function GuessInput({ submitGuess }) {
-  const [guess, setGuess] = useState("");
+  const [value, setValue] = useState("");
 
   // Handle onChange event for form input
   const handleChange = (e) => {
     const value = e.target.value.toUpperCase();
-    if (value.length <= GUESS_LENGTH) setGuess(e.target.value.toUpperCase());
+    if (value.length <= GUESS_LENGTH) setValue(e.target.value.toUpperCase());
   };
 
   // Handle onSubmit event for form
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitGuess(guess);
-    setGuess("");
+    submitGuess(value);
+    setValue("");
   };
 
   return (
@@ -28,7 +28,7 @@ function GuessInput({ submitGuess }) {
         maxLength={GUESS_LENGTH}
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
-        value={guess}
+        value={value}
         onChange={handleChange}
       />
     </form>
