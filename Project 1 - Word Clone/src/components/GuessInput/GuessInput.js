@@ -28,6 +28,8 @@ function GuessInput({ submitGuess }) {
         required={true}
         minLength={GUESS_LENGTH}
         maxLength={GUESS_LENGTH}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
         value={guess}
         onChange={handleChange}
       />
