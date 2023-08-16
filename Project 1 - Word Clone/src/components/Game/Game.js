@@ -5,6 +5,7 @@ import { WORDS } from "../../data";
 
 import GuessInput from "../GuessInput";
 import GuessList from "../GuessList";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 const ANSWER = sample(WORDS); // Pick a random word on every pageload.
 console.info({ ANSWER }); // Log solution for debugging
@@ -12,11 +13,11 @@ console.info({ ANSWER }); // Log solution for debugging
 function Game() {
   const [guesses, setGuesses] = useState([]);
 
+  // TODO: Can only submit unique guesses
   const submitGuess = (guess) => {
-    // TODO: Can only submit unique guesses
-    // TODO: Max number of guesses is 6
-    const nextGuesses = [...guesses, { guess, id: Math.random() }];
-    console.log(nextGuesses);
+    if (guesses.length >= NUM_OF_GUESSES_ALLOWED) return;
+
+    const nextGuesses = [...guesses, guess];
     setGuesses(nextGuesses);
   };
 
