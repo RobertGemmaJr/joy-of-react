@@ -9,6 +9,7 @@ function GuessInput({ submitGuess }) {
       onSubmit={(e) => {
         e.preventDefault();
         submitGuess(guess);
+        setGuess("");
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
@@ -16,7 +17,7 @@ function GuessInput({ submitGuess }) {
         id="guess-input"
         type="text"
         value={guess}
-        onChange={(e) => setGuess(e.target.value)}
+        onChange={(e) => setGuess(e.target.value.toUpperCase())}
       />
     </form>
   );

@@ -11,7 +11,7 @@ console.info({ answer });
 
 function Game() {
   const submitGuess = (guess) => {
-    console.log("The user guessed", guess);
+    console.log({ guess });
   };
 
   return (
