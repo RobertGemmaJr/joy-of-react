@@ -7,7 +7,8 @@ import { checkGuess } from "../../game-helpers";
 
 import GuessInput from "../GuessInput";
 import GuessList from "../GuessList";
-import Banner from "../Banner";
+import BannerWon from "../BannerWon";
+import BannerLost from "../BannerLost";
 
 const ANSWER = sample(WORDS); // Pick a random word on every pageload.
 console.info({ ANSWER }); // Log solution for debugging
@@ -29,10 +30,17 @@ function Game() {
     else if (nextGuesses.length >= NUM_OF_GUESSES_ALLOWED) setStatus("LOST");
   };
 
+  const banner =
+    status === "PLAYING" ? null : status === "WON" ? (
+      <BannerWon numGuesses={guesses.length} />
+    ) : (
+      <BannerLost answer={ANSWER} />
+    );
+
   return (
     <div>
       <GuessList guesses={guesses} />
-      <Banner status={status} numGuesses={guesses.length} answer={ANSWER} />
+      {banner}
       <GuessInput submitGuess={submitGuess} status={status} />
     </div>
   );
