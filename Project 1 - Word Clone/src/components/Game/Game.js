@@ -16,7 +16,7 @@ function Game() {
   const [guesses, setGuesses] = useState([]);
   const [status, setStatus] = useState("PLAYING"); // PLAYING || WON || LOST
 
-  // TODO: Can only submit unique guesses
+  // TODO: Can only submit unique guesses (display banner if so)
   const submitGuess = (value) => {
     // Update guesses array
     const guess = checkGuess(value, ANSWER);
