@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GUESS_LENGTH } from "../../constants";
 
-function GuessInput({ submitGuess }) {
+function GuessInput({ submitGuess, status }) {
   const [value, setValue] = useState("");
 
   // Handle onChange event for form input
@@ -23,6 +23,7 @@ function GuessInput({ submitGuess }) {
       <input
         id="guess-input"
         type="text"
+        disabled={status !== "PLAYING"}
         required={true}
         minLength={GUESS_LENGTH}
         maxLength={GUESS_LENGTH}
