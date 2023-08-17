@@ -6,6 +6,7 @@ import { WORDS } from "../../data";
 import GuessInput from "../GuessInput";
 import GuessList from "../GuessList";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import { checkGuess } from "../../game-helpers";
 
 const ANSWER = sample(WORDS); // Pick a random word on every pageload.
 console.info({ ANSWER }); // Log solution for debugging
@@ -17,7 +18,7 @@ function Game() {
   const submitGuess = (guess) => {
     if (guesses.length >= NUM_OF_GUESSES_ALLOWED) return;
 
-    const nextGuesses = [...guesses, guess];
+    const nextGuesses = [...guesses, checkGuess(guess, ANSWER)];
     setGuesses(nextGuesses);
   };
 
