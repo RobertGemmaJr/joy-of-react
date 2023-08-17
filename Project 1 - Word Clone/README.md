@@ -249,7 +249,7 @@ When the game is over, one of these banners should be shown, and the text input 
 
 ---
 
-# Stretch Goals
+# Stretch Goals <!-- markdownlint-disable-line MD025-->
 
 If you're looking for an additional challenge, give these stretch goals a shot!
 
