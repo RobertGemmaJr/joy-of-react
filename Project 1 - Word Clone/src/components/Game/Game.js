@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-import { sample } from "../../utils";
-import { WORDS } from "../../data";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import { WORDS } from "../../data";
 import { checkGuess } from "../../game-helpers";
+import { sample } from "../../utils";
 
+import BannerLost from "../BannerLost";
+import BannerWon from "../BannerWon";
 import GuessInput from "../GuessInput";
 import GuessList from "../GuessList";
-import BannerWon from "../BannerWon";
-import BannerLost from "../BannerLost";
+import Keyboard from "../Keyboard";
 
 const ANSWER = sample(WORDS); // Pick a random word on every pageload.
 console.info({ ANSWER }); // Log solution for debugging
@@ -42,6 +43,7 @@ function Game() {
       <GuessList guesses={guesses} />
       {banner}
       <GuessInput submitGuess={submitGuess} status={status} />
+      <Keyboard />
     </div>
   );
 }
